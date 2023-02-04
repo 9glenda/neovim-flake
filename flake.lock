@@ -196,6 +196,22 @@
         "type": "github"
       }
     },
+    "plugin:js-is-bad": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1660550919,
+        "narHash": "sha256-dvXoymyoBse3MLwdDYxASYEPFGnAs16OK+6J8hOQQEA=",
+        "owner": "pangloss",
+        "repo": "vim-javascript",
+        "rev": "c470ce1399a544fe587eab950f571c83cccfbbdc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "pangloss",
+        "repo": "vim-javascript",
+        "type": "github"
+      }
+    },
     "plugin:lazygit": {
       "flake": false,
       "locked": {
@@ -420,6 +436,22 @@
         "type": "github"
       }
     },
+    "plugin:webdev-icons": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1675479859,
+        "narHash": "sha256-bbce2CpzCY8/Y6egWJWthZ9t1IkODCt+467S728vcKM=",
+        "owner": "nvim-tree",
+        "repo": "nvim-web-devicons",
+        "rev": "2b96193abe4372e18e4f4533895a42a466d53c17",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-tree",
+        "repo": "nvim-web-devicons",
+        "type": "github"
+      }
+    },
     "plugin:which-key": {
       "flake": false,
       "locked": {
@@ -449,6 +481,7 @@
         "plugin:cmp-path": "plugin:cmp-path",
         "plugin:cmp_luasnip": "plugin:cmp_luasnip",
         "plugin:gitsigns": "plugin:gitsigns",
+        "plugin:js-is-bad": "plugin:js-is-bad",
         "plugin:lazygit": "plugin:lazygit",
         "plugin:lualine": "plugin:lualine",
         "plugin:luasnip": "plugin:luasnip",
@@ -463,6 +496,7 @@
         "plugin:telescope-plugin": "plugin:telescope-plugin",
         "plugin:telescope.nvim": "plugin:telescope.nvim",
         "plugin:vim-nix": "plugin:vim-nix",
+        "plugin:webdev-icons": "plugin:webdev-icons",
         "plugin:which-key": "plugin:which-key"
       }
     }

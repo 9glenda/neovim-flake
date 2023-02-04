@@ -26,6 +26,14 @@
       url = "github:nvim-telescope/telescope-project.nvim";
       flake = false;
     };
+    "plugin:webdev-icons" = {
+      url = "github:nvim-tree/nvim-web-devicons";
+      flake = false;
+    };
+    "plugin:js-is-bad" = {
+      url = "github:pangloss/vim-javascript";
+      flake = false;
+    };
     "plugin:plenary" = {
       url = "github:nvim-lua/plenary.nvim";
       flake = false;

@@ -2,7 +2,7 @@
   description = "9glenda's simple Neovim flake for easy configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "nixpkgs/nixos-22.11";
     flake-utils = {
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:numtide/flake-utils";
@@ -34,10 +34,10 @@
       url = "github:kdheepak/lazygit.nvim";
       flake = false;
     };
-#    "plugin:luasnip" = {
-#      url = "github:L3MON4D3/LuaSnip";
-#      flake = false;
-#    };
+    "plugin:luasnip" = {
+      url = "github:L3MON4D3/LuaSnip";
+      flake = false;
+    };
     "plugin:which-key" = {
       url = "github:folke/which-key.nvim";
       flake = false;
@@ -58,22 +58,22 @@
       url = "github:saadparwaiz1/cmp_luasnip";
       flake = false;
     };
-#    "plugin:cmp-path" = {
-#      url = "github:hrsh7th/cmp-path";
-#      flake = false;
-#    };
-#    "plugin:cmp-nvim-lsp" = {
-#      url = "github:hrsh7th/cmp-nvim-lsp";
-#      flake = false;
-#    };
-#    "plugin:cmp-buffer" = {
-#      url = "github:sar/cmp-buffer.nvim";
-#      flake = false;
-#    };
-#    "plugin:cmp-cmdline" = {
-#      url = "github:hrsh7th/cmp-cmdline";
-#      flake = false;
-#    };
+    "plugin:cmp-path" = {
+      url = "github:hrsh7th/cmp-path";
+      flake = false;
+    };
+    "plugin:cmp-nvim-lsp" = {
+      url = "github:hrsh7th/cmp-nvim-lsp";
+      flake = false;
+    };
+    "plugin:cmp-buffer" = {
+      url = "github:sar/cmp-buffer.nvim";
+      flake = false;
+    };
+    "plugin:cmp-cmdline" = {
+      url = "github:hrsh7th/cmp-cmdline";
+      flake = false;
+    };
     "plugin:lualine" = {
       url = "github:nvim-lualine/lualine.nvim";
       flake = false;

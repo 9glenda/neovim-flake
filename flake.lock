@@ -55,17 +55,64 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1675309347,
-        "narHash": "sha256-D3CQ6HRDT2m3XJlrzb5jKq4vNFR5xFTEFKC7iSjlFpM=",
-        "owner": "nixos",
+        "lastModified": 1675410244,
+        "narHash": "sha256-ODj6egMoH/HgAF/0wIy0EfRBeUx5FMuLl6uAdUW3kCI=",
+        "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "006c3bd4dd2f5d1d2094047f307cbf9e2b73d9c5",
+        "rev": "f7543a7539a007e9562e4d8d24e17a4bcf369b68",
         "type": "github"
       },
       "original": {
-        "owner": "nixos",
-        "ref": "nixpkgs-unstable",
-        "repo": "nixpkgs",
+        "id": "nixpkgs",
+        "ref": "nixos-22.11",
+        "type": "indirect"
+      }
+    },
+    "plugin:cmp-buffer": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1660101488,
+        "narHash": "sha256-dG4U7MtnXThoa/PD+qFtCt76MQ14V1wX8GMYcvxEnbM=",
+        "owner": "sar",
+        "repo": "cmp-buffer.nvim",
+        "rev": "3022dbc9166796b644a841a02de8dd1cc1d311fa",
+        "type": "github"
+      },
+      "original": {
+        "owner": "sar",
+        "repo": "cmp-buffer.nvim",
+        "type": "github"
+      }
+    },
+    "plugin:cmp-cmdline": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1669558641,
+        "narHash": "sha256-hzLiqPMU0tDQ4MTwKxvb3gY2JdD5KwqltGYckuSOzm0=",
+        "owner": "hrsh7th",
+        "repo": "cmp-cmdline",
+        "rev": "23c51b2a3c00f6abc4e922dbd7c3b9aca6992063",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hrsh7th",
+        "repo": "cmp-cmdline",
+        "type": "github"
+      }
+    },
+    "plugin:cmp-nvim-lsp": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1668566979,
+        "narHash": "sha256-Mqkp8IH/laUx0cK7S0BjusTT+OtOOJOamZM4+93RHdU=",
+        "owner": "hrsh7th",
+        "repo": "cmp-nvim-lsp",
+        "rev": "59224771f91b86d1de12570b4070fe4ad7cd1eeb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hrsh7th",
+        "repo": "cmp-nvim-lsp",
         "type": "github"
       }
     },
@@ -82,6 +129,22 @@
       "original": {
         "owner": "hrsh7th",
         "repo": "cmp-nvim-lua",
+        "type": "github"
+      }
+    },
+    "plugin:cmp-path": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1664784283,
+        "narHash": "sha256-thppiiV3wjIaZnAXmsh7j3DUc6ceSCvGzviwFUnoPaI=",
+        "owner": "hrsh7th",
+        "repo": "cmp-path",
+        "rev": "91ff86cd9c29299a64f968ebb45846c485725f23",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hrsh7th",
+        "repo": "cmp-path",
         "type": "github"
       }
     },
@@ -146,6 +209,22 @@
       "original": {
         "owner": "nvim-lualine",
         "repo": "lualine.nvim",
+        "type": "github"
+      }
+    },
+    "plugin:luasnip": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1675345625,
+        "narHash": "sha256-32ZEkJ4C8c2CJsV7hs8UHeadwJ3l+STJyxhc9pcaTW4=",
+        "owner": "L3MON4D3",
+        "repo": "LuaSnip",
+        "rev": "d404ec306bfa4cdb0c3605dbb17e8a93a9597337",
+        "type": "github"
+      },
+      "original": {
+        "owner": "L3MON4D3",
+        "repo": "LuaSnip",
         "type": "github"
       }
     },
@@ -298,11 +377,16 @@
         "flake-utils": "flake-utils",
         "neovim-flake": "neovim-flake",
         "nixpkgs": "nixpkgs",
+        "plugin:cmp-buffer": "plugin:cmp-buffer",
+        "plugin:cmp-cmdline": "plugin:cmp-cmdline",
+        "plugin:cmp-nvim-lsp": "plugin:cmp-nvim-lsp",
         "plugin:cmp-nvim-lua": "plugin:cmp-nvim-lua",
+        "plugin:cmp-path": "plugin:cmp-path",
         "plugin:cmp_luasnip": "plugin:cmp_luasnip",
         "plugin:gitsigns": "plugin:gitsigns",
         "plugin:lazygit": "plugin:lazygit",
         "plugin:lualine": "plugin:lualine",
+        "plugin:luasnip": "plugin:luasnip",
         "plugin:neovim-dashboard": "plugin:neovim-dashboard",
         "plugin:neovim-tree": "plugin:neovim-tree",
         "plugin:nickel": "plugin:nickel",

@@ -222,7 +222,9 @@
             };
           };
       in rec {
+        overlays = [ self.packages.${system}.neovimGlenda ];
         nixosModules.default = { config, lib, pkgs, ... }:
+
         with lib;
         let
           cfg = config.neovim-flake.neovim;

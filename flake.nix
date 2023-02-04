@@ -241,9 +241,20 @@
 
         packages.neovimGlenda = neovimBuilder {
           # the next line loads a trivial example of a init.vim:
-          customRC = pkgs.lib.readFile ./init.vim;
+          # customRC = pkgs.lib.readFile ./${packages.config}/bin/init.vim;
+
+          customRC = ''source ${packages.config}/bin/init.vim'';
           # if you wish to only load the onedark-vim colorscheme:
           # start = with pkgs.neovimPlugins; [ onedark-vim neovim-tree ];
+        };
+        packages.config = pkgs.stdenv.mkDerivation {
+          name = "config";
+          src = ./.;
+          installPhase = ''
+            mkdir -p $out/bin
+            cp -r config $out/bin
+            cp init.vim $out/bin
+          '';
         };
       }
     );

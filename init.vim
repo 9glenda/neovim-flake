@@ -1,1 +1,1 @@
-luafile config/init.lua
+luafile ./config/init.lua

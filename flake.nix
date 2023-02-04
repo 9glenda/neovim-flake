@@ -222,6 +222,23 @@
             };
           };
       in rec {
+        nixosModule = { config, lib, pkgs, ... }:
+        with lib;
+        let
+          cfg = config.neovim-flake.neovim;
+        in
+        {
+          options.neovim-flake.neovim = {
+            enable = mkEnableOption "Enables neovim";
+          };
+
+          config = mkIf cfg.enable {
+            environment.systemPackages = [
+              self.packages.${system}.neovimGlenda
+            ];
+        };
+        };
+
         defaultApp = apps.nvim;
         defaultPackage = packages.neovimGlenda;
 

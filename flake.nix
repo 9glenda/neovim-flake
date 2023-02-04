@@ -257,7 +257,7 @@
             # the next line loads a trivial example of a init.vim:
             # customRC = pkgs.lib.readFile ./${packages.config}/bin/init.vim;
 
-            customRC = "luafile ${packages.config}/bin/config/init.lua";
+            customRC = "luafile ${packages.config}/bin/init.lua";
             # if you wish to only load the onedark-vim colorscheme:
             # start = with pkgs.neovimPlugins; [ onedark-vim neovim-tree ];
           };
@@ -268,6 +268,7 @@
               mkdir -p $out/bin
               cp -r config $out/bin
               cp init.vim $out/bin
+              cp init.lua $out/bin
             '';
           };
         };

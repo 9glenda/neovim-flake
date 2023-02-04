@@ -100,6 +100,22 @@
         "type": "github"
       }
     },
+    "plugin:cmp-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1675440540,
+        "narHash": "sha256-BgI0dR7ss+pClGIu3EWXV7r5mMpo6Xt3QMVAxeWm++E=",
+        "owner": "hrsh7th",
+        "repo": "nvim-cmp",
+        "rev": "cfafe0a1ca8933f7b7968a287d39904156f2c57d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hrsh7th",
+        "repo": "nvim-cmp",
+        "type": "github"
+      }
+    },
     "plugin:cmp-nvim-lsp": {
       "flake": false,
       "locked": {
@@ -228,6 +244,22 @@
         "type": "github"
       }
     },
+    "plugin:neogit": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1675169188,
+        "narHash": "sha256-yu9yErQu8/LalI1TDPi9dxSkQSNAX7lYTdDG7EighEA=",
+        "owner": "TimUntersberger",
+        "repo": "neogit",
+        "rev": "089d388876a535032ac6a3f80e19420f09e4ddda",
+        "type": "github"
+      },
+      "original": {
+        "owner": "TimUntersberger",
+        "repo": "neogit",
+        "type": "github"
+      }
+    },
     "plugin:neovim-dashboard": {
       "flake": false,
       "locked": {
@@ -324,6 +356,38 @@
         "type": "github"
       }
     },
+    "plugin:plenary": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1675102817,
+        "narHash": "sha256-XxyAeN+kt8Cvt8aklVXyjqS4QRaP/0RE6+tPdoGGxPc=",
+        "owner": "nvim-lua",
+        "repo": "plenary.nvim",
+        "rev": "9a0d3bf7b832818c042aaf30f692b081ddd58bd9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-lua",
+        "repo": "plenary.nvim",
+        "type": "github"
+      }
+    },
+    "plugin:telescope-plugin": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1671805267,
+        "narHash": "sha256-S4SOHzQ17ux5pcwwYFpVVLzjLeC4/EJ0IFPbrfzUJC8=",
+        "owner": "nvim-telescope",
+        "repo": "telescope-project.nvim",
+        "rev": "8e8ee37b7210761502cdf2c3a82b5ba8fb5b2972",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-telescope",
+        "repo": "telescope-project.nvim",
+        "type": "github"
+      }
+    },
     "plugin:telescope.nvim": {
       "flake": false,
       "locked": {
@@ -379,6 +443,7 @@
         "nixpkgs": "nixpkgs",
         "plugin:cmp-buffer": "plugin:cmp-buffer",
         "plugin:cmp-cmdline": "plugin:cmp-cmdline",
+        "plugin:cmp-nvim": "plugin:cmp-nvim",
         "plugin:cmp-nvim-lsp": "plugin:cmp-nvim-lsp",
         "plugin:cmp-nvim-lua": "plugin:cmp-nvim-lua",
         "plugin:cmp-path": "plugin:cmp-path",
@@ -387,12 +452,15 @@
         "plugin:lazygit": "plugin:lazygit",
         "plugin:lualine": "plugin:lualine",
         "plugin:luasnip": "plugin:luasnip",
+        "plugin:neogit": "plugin:neogit",
         "plugin:neovim-dashboard": "plugin:neovim-dashboard",
         "plugin:neovim-tree": "plugin:neovim-tree",
         "plugin:nickel": "plugin:nickel",
         "plugin:nvim-autopairs": "plugin:nvim-autopairs",
         "plugin:nvim-lspconfig": "plugin:nvim-lspconfig",
         "plugin:onedark-vim": "plugin:onedark-vim",
+        "plugin:plenary": "plugin:plenary",
+        "plugin:telescope-plugin": "plugin:telescope-plugin",
         "plugin:telescope.nvim": "plugin:telescope.nvim",
         "plugin:vim-nix": "plugin:vim-nix",
         "plugin:which-key": "plugin:which-key"

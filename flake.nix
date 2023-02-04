@@ -22,6 +22,14 @@
       url = "github:lewis6991/gitsigns.nvim";
       flake = false;
     };
+    "plugin:telescope-plugin" = {
+      url = "github:nvim-telescope/telescope-project.nvim";
+      flake = false;
+    };
+    "plugin:plenary" = {
+      url = "github:nvim-lua/plenary.nvim";
+      flake = false;
+    };
     "plugin:neovim-tree" = {
       url = "github:nvim-tree/nvim-tree.lua";
       flake = false;
@@ -48,6 +56,10 @@
     };
     "plugin:nvim-lspconfig" = {
       url = "github:neovim/nvim-lspconfig";
+      flake = false;
+    };
+    "plugin:cmp-nvim" = {
+      url = "github:hrsh7th/nvim-cmp";
       flake = false;
     };
     "plugin:cmp-nvim-lua" = {
@@ -84,6 +96,10 @@
     };
     "plugin:nickel" = {
       url = "github:nickel-lang/vim-nickel";
+      flake = false;
+    };
+    "plugin:neogit" = {
+      url = "github:TimUntersberger/neogit";
       flake = false;
     };
      "plugin:neovim-dashboard" = {

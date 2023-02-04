@@ -102,9 +102,9 @@
       url = "github:TimUntersberger/neogit";
       flake = false;
     };
-     "plugin:neovim-dashboard" = {
-       url = "github:glepnir/dashboard-nvim";
-       flake = false;
+    "plugin:neovim-dashboard" = {
+      url = "github:glepnir/dashboard-nvim";
+      flake = false;
     };
 
   };
@@ -131,36 +131,33 @@
         pluginOverlay = final: prev:
           let
             inherit (prev.vimUtils) buildVimPluginFrom2Nix;
-            treesitterGrammars = prev.tree-sitter.withPlugins (_: prev.tree-sitter.allGrammars);
-            plugins = builtins.filter
-              (s: (builtins.match "plugin:.*" s) != null)
+            treesitterGrammars =
+              prev.tree-sitter.withPlugins (_: prev.tree-sitter.allGrammars);
+            plugins =
+              builtins.filter (s: (builtins.match "plugin:.*" s) != null)
               (builtins.attrNames inputs);
             plugName = input:
-              builtins.substring
-                (builtins.stringLength "plugin:")
-                (builtins.stringLength input)
-                input;
-            buildPlug = name: buildVimPluginFrom2Nix {
-              pname = plugName name;
-              version = "master";
-              src = builtins.getAttr name inputs;
+              builtins.substring (builtins.stringLength "plugin:")
+              (builtins.stringLength input) input;
+            buildPlug = name:
+              buildVimPluginFrom2Nix {
+                pname = plugName name;
+                version = "master";
+                src = builtins.getAttr name inputs;
 
-              # Tree-sitter fails for a variety of lang grammars unless using :TSUpdate
-              # For now install imperatively
-              #postPatch =
-              #  if (name == "nvim-treesitter") then ''
-              #    rm -r parser
-              #    ln -s ${treesitterGrammars} parser
-              #  '' else "";
-            };
-          in
-          {
-            neovimPlugins = builtins.listToAttrs (map
-              (plugin: {
-                name = plugName plugin;
-                value = buildPlug plugin;
-              })
-              plugins);
+                # Tree-sitter fails for a variety of lang grammars unless using :TSUpdate
+                # For now install imperatively
+                #postPatch =
+                #  if (name == "nvim-treesitter") then ''
+                #    rm -r parser
+                #    ln -s ${treesitterGrammars} parser
+                #  '' else "";
+              };
+          in {
+            neovimPlugins = builtins.listToAttrs (map (plugin: {
+              name = plugName plugin;
+              value = buildPlug plugin;
+            }) plugins);
           };
 
         # Apply the overlay and load nixpkgs as `pkgs`
@@ -169,7 +166,8 @@
           overlays = [
             pluginOverlay
             (final: prev: {
-              neovim-unwrapped = inputs.neovim-flake.packages.${prev.system}.neovim;
+              neovim-unwrapped =
+                inputs.neovim-flake.packages.${prev.system}.neovim;
             })
           ];
         };
@@ -205,20 +203,14 @@
         #          | to your imports!
         # opt      | List of optional plugins to load only when 
         #          | explicitly loaded from inside neovim
-        neovimBuilder =
-          { customRC ? ""
-          , viAlias ? true
-          , vimAlias ? true
-          , start ? builtins.attrValues pkgs.neovimPlugins
-          , opt ? [ ]
-          , debug ? false
-          }:
+        neovimBuilder = { customRC ? "", viAlias ? true, vimAlias ? true
+          , start ? builtins.attrValues pkgs.neovimPlugins, opt ? [ ]
+          , debug ? false }:
           let
             myNeovimUnwrapped = pkgs.neovim-unwrapped.overrideAttrs (prev: {
               propagatedBuildInputs = with pkgs; [ pkgs.stdenv.cc.cc.lib ];
             });
-          in
-          pkgs.wrapNeovim myNeovimUnwrapped {
+          in pkgs.wrapNeovim myNeovimUnwrapped {
             inherit viAlias;
             inherit vimAlias;
             configure = {
@@ -229,8 +221,7 @@
               };
             };
           };
-      in
-      rec {
+      in rec {
         defaultApp = apps.nvim;
         defaultPackage = packages.neovimGlenda;
 
@@ -239,23 +230,24 @@
           program = "${defaultPackage}/bin/nvim";
         };
 
-        packages.neovimGlenda = neovimBuilder {
-          # the next line loads a trivial example of a init.vim:
-          # customRC = pkgs.lib.readFile ./${packages.config}/bin/init.vim;
+        packages = {
+          neovimGlenda = neovimBuilder {
+            # the next line loads a trivial example of a init.vim:
+            # customRC = pkgs.lib.readFile ./${packages.config}/bin/init.vim;
 
-          customRC = ''luafile ${packages.config}/bin/config/init.lua'';
-          # if you wish to only load the onedark-vim colorscheme:
-          # start = with pkgs.neovimPlugins; [ onedark-vim neovim-tree ];
+            customRC = "luafile ${packages.config}/bin/config/init.lua";
+            # if you wish to only load the onedark-vim colorscheme:
+            # start = with pkgs.neovimPlugins; [ onedark-vim neovim-tree ];
+          };
+          config = pkgs.stdenv.mkDerivation {
+            name = "config";
+            src = ./.;
+            installPhase = ''
+              mkdir -p $out/bin
+              cp -r config $out/bin
+              cp init.vim $out/bin
+            '';
+          };
         };
-        packages.config = pkgs.stdenv.mkDerivation {
-          name = "config";
-          src = ./.;
-          installPhase = ''
-            mkdir -p $out/bin
-            cp -r config $out/bin
-            cp init.vim $out/bin
-          '';
-        };
-      }
-    );
+      });
 }

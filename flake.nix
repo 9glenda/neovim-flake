@@ -222,7 +222,7 @@
             };
           };
       in rec {
-        nixosModule = { config, lib, pkgs, ... }:
+        nixosModules.default = { config, lib, pkgs, ... }:
         with lib;
         let
           cfg = config.neovim-flake.neovim;

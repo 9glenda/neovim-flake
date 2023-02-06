@@ -242,7 +242,7 @@
             };
           };
       in rec {
-        overlays.default = final: prev: {
+        overlay = final: prev: {
           neovim = self.packages.neovimGlenda;
         };
 

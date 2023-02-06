@@ -242,9 +242,9 @@
             };
           };
       in rec {
-        overlay = (final: prev: {
+        overlays.default = final: prev: {
           neovim = self.packages.neovimGlenda;
-        });
+        };
 
         nixosModules.default = { config, lib, pkgs, ... }:
 

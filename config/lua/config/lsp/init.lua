@@ -3,10 +3,6 @@ if not status_ok then
     return
   end
 
-require "config.lsp.gopls"
-require "config.lsp.nix"
-require "config.lsp.lua"
-require "config.lsp.rust"
 
   -- require "user.lsp.mason"
   -- require("user.lsp.handlers").setup()

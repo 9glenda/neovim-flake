@@ -136,6 +136,14 @@
         # ```
         # pkgs.neovimPlugins.yourPluginName
         # ```
+    wrapLuaConfig = luaConfig: ''
+    lua << EOF
+    ${luaConfig}
+    EOF
+  '';
+
+  luaFile = path: wrapLuaConfig "${builtins.readFile path}";
+
         pluginOverlay = final: prev:
           let
             inherit (prev.vimUtils) buildVimPluginFrom2Nix;
@@ -187,6 +195,7 @@
         # 
         # Parameters:
         # customRC | your init.vim as string
+        # customLuaRc | your init.lua as string
         # viAlias  | allow calling neovim using `vi`
         # vimAlias | allow calling neovim using `vim`
         # start    | The set of plugins to load on every startup
@@ -211,7 +220,7 @@
         #          | to your imports!
         # opt      | List of optional plugins to load only when 
         #          | explicitly loaded from inside neovim
-        neovimBuilder = { customRC ? "", viAlias ? true, vimAlias ? true
+        neovimBuilder = { luaConfigRC ? "", customRC ? "", viAlias ? true, vimAlias ? true
           , start ? builtins.attrValues pkgs.neovimPlugins, opt ? [ ]
           , debug ? false }:
           let
@@ -222,7 +231,10 @@
             inherit viAlias;
             inherit vimAlias;
             configure = {
-              customRC = customRC;
+              customRC = ''
+              ${wrapLuaConfig luaConfigRC}
+              ${customRC}
+              '';
               packages.myVimPackage = with pkgs.neovimPlugins; {
                 start = start;
                 opt = opt;
@@ -231,26 +243,23 @@
           };
       in rec {
         overlay = (final: prev: {
-  neovimGlenda = self.packages.${prev.system}.neovimGlenda;
-});
+          neovim = self.packages.neovimGlenda;
+        });
 
         nixosModules.default = { config, lib, pkgs, ... }:
 
-        with lib;
-        let
-          cfg = config.neovim-flake.neovim;
-        in
-        {
-          options.neovim-flake.neovim = {
-            enable = mkEnableOption "Enables neovim";
-          };
+          with lib;
+          let cfg = config.neovim-flake.neovim;
+          in {
+            options.neovim-flake.neovim = {
+              enable = mkEnableOption "Enables neovim";
+            };
 
-          config = mkIf cfg.enable {
-            environment.systemPackages = [
-              self.packages.${system}.neovimGlenda
-            ];
-        };
-        };
+            config = mkIf cfg.enable {
+              environment.systemPackages =
+                [ self.packages.${system}.neovimGlenda ];
+            };
+          };
 
         defaultApp = apps.nvim;
         defaultPackage = packages.neovimGlenda;
@@ -264,19 +273,107 @@
           neovimGlenda = neovimBuilder {
             # the next line loads a trivial example of a init.vim:
             # customRC = pkgs.lib.readFile ./${packages.config}/bin/init.vim;
+          #customRC = luaFile ./config/lua/config/options.lua;
 
-            customRC = "luafile ${packages.config}/bin/init.lua";
+          customRC =''
+${luaFile ./config/lua/config/options.lua}
+${luaFile ./config/lua/config/colorsheme.lua}
+${luaFile ./config/lua/config/whichkey.lua}
+${luaFile ./config/lua/config/cmp.lua}
+${luaFile ./config/lua/config/comment.lua}
+${luaFile ./config/lua/config/autopairs.lua}
+${luaFile ./config/lua/config/lualine.lua}
+${luaFile ./config/lua/config/dashboard.lua}
+${luaFile ./config/lua/config/telescope.lua}
+${luaFile ./config/lua/config/keymap.lua}
+${luaFile ./config/lua/config/git.lua}
+${luaFile ./config/lua/config/lsp/nix.lua}
+${luaFile ./config/lua/config/lsp/gopls.lua}
+${luaFile ./config/lua/config/lsp/lua.lua}
+${luaFile ./config/lua/config/lsp/rust.lua}
+            '';
+
+# -- ${luaFile ./config/lua/config/lsp.lua}
+#            luaConfigRC = ''
+#
+#local options = {
+#  backup = false,                          -- creates a backup file
+#  clipboard = "unnamedplus",               -- allows neovim to access the system clipboard
+#  cmdheight = 2,                           -- more space in the neovim command line for displaying messages
+#  completeopt = { "menuone", "noselect" }, -- mostly just for cmp
+#  conceallevel = 0,                        -- so that `` is visible in markdown files
+#  fileencoding = "utf-8",                  -- the encoding written to a file
+#  hlsearch = true,                         -- highlight all matches on previous search pattern
+#  ignorecase = true,                       -- ignore case in search patterns
+#  mouse = "a",                             -- allow the mouse to be used in neovim
+#  pumheight = 10,                          -- pop up menu height
+#  showmode = false,                        -- we don't need to see things like -- INSERT -- anymore
+#  showtabline = 2,                         -- always show tabs
+#  smartcase = true,                        -- smart case
+#  smartindent = true,                      -- make indenting smarter again
+#  splitbelow = true,                       -- force all horizontal splits to go below current window
+#  splitright = true,                       -- force all vertical splits to go to the right of current window
+#  swapfile = false,                        -- creates a swapfile
+#  -- termguicolors = true,                    -- set term gui colors (most terminals support this)
+#  timeoutlen = 300,                        -- time to wait for a mapped sequence to complete (in milliseconds)
+#  undofile = true,                         -- enable persistent undo
+#  updatetime = 300,                        -- faster completion (4000ms default)
+#  writebackup = false,                     -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
+#  expandtab = true,                        -- convert tabs to spaces
+#  shiftwidth = 2,                          -- the number of spaces inserted for each indentation
+#  tabstop = 2,                             -- insert 2 spaces for a tab
+#  cursorline = true,                       -- highlight the current line
+#  number = true,                           -- set numbered lines
+#  relativenumber = true,                   -- set relative numbered lines
+#  numberwidth = 4,                         -- set number column width to 2 {default 4}
+#
+#  signcolumn = "yes",                      -- always show the sign column, otherwise it would shift the text each time
+#  wrap = false,                            -- display lines as one long line
+#  linebreak = false,                        -- companion to wrap, don't split words
+#  scrolloff = 8,                           -- minimal number of screen lines to keep above and below the cursor
+#  sidescrolloff = 8,                       -- minimal number of screen columns either side of cursor if wrap is `false`
+#  guifont = "monospace:h12",               -- the font used in graphical neovim applications
+#}
+#
+#vim.opt.shortmess:append "c"
+#
+#for k, v in pairs(options) do
+#  vim.opt[k] = v
+#end
+#
+#vim.cmd "set whichwrap+=<,>,[,],h,l"
+#vim.cmd [[set iskeyword+=-]]
+#vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
+#            '';
+            #customRC = "
+            #luafile ${packages.config}/bin/init.lua
+            #";
             # if you wish to only load the onedark-vim colorscheme:
             # start = with pkgs.neovimPlugins; [ onedark-vim neovim-tree ];
           };
           config = pkgs.stdenv.mkDerivation {
             name = "config";
             src = ./.;
+            buildPhase = ''
+            '';
             installPhase = ''
+              printf 'require "%s/bin/config/lua/config/options.lua"' "$out" > init.lua
               mkdir -p $out/bin
               cp -r config $out/bin
               cp init.vim $out/bin
               cp init.lua $out/bin
+            '';
+          };
+          runNeovim = pkgs.stdenv.mkDerivation {
+            name = "runNeovim";
+            src = ./.;
+            buildPhase = ''
+              printf '#!/bin/sh
+              LUA_PATH=%s:$LUA_PATH ${packages.neovimGlenda}/bin/nvim' "$out/bin/config" > runNeovim
+              '';
+            installPhase = ''
+              mkdir -p $out/bin
+              install runNeovim $out/bin/runNeovim
             '';
           };
         };

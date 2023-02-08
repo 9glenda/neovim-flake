@@ -79,10 +79,13 @@ local opts = {
 }
 
 local mappings = {
-  ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
   ["g"] = {
     name = "Git",
     b = { "<cmd>Telescope git_branches<cr>", "Branch" }, -- create a binding with label
+  },
+  ["t"] = {
+    name = "Term",
+    t = { "<cmd>ToggleTerm<cr>", "New" }, -- create a binding with label
   }
 }
 

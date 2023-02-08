@@ -452,6 +452,22 @@
         "type": "github"
       }
     },
+    "plugin:toggleterm": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1675358836,
+        "narHash": "sha256-9O7p/7tRStg51OFhMc88M5ewYquiYC9x9CV4s5veVP8=",
+        "owner": "akinsho",
+        "repo": "toggleterm.nvim",
+        "rev": "19aad0f41f47affbba1274f05e3c067e6d718e1e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "akinsho",
+        "repo": "toggleterm.nvim",
+        "type": "github"
+      }
+    },
     "plugin:vim-commentary": {
       "flake": false,
       "locked": {
@@ -561,6 +577,7 @@
         "plugin:tagbar": "plugin:tagbar",
         "plugin:telescope-plugin": "plugin:telescope-plugin",
         "plugin:telescope.nvim": "plugin:telescope.nvim",
+        "plugin:toggleterm": "plugin:toggleterm",
         "plugin:vim-commentary": "plugin:vim-commentary",
         "plugin:vim-nix": "plugin:vim-nix",
         "plugin:vim-surround": "plugin:vim-surround",

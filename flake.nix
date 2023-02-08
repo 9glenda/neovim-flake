@@ -22,12 +22,30 @@
       url = "github:lewis6991/gitsigns.nvim";
       flake = false;
     };
+    "plugin:fugitive" = {
+      url = "github:tpope/vim-fugitive";
+      flake = false;
+    };
+
+    "plugin:vim-surround" = {
+      url = "github:tpope/vim-surround";
+      flake = false;
+    };
     "plugin:telescope-plugin" = {
       url = "github:nvim-telescope/telescope-project.nvim";
       flake = false;
     };
     "plugin:webdev-icons" = {
       url = "github:nvim-tree/nvim-web-devicons";
+      flake = false;
+    };
+
+    "plugin:vim-commentary" = {
+      url = "github:tpope/vim-commentary";
+      flake = false;
+    };
+    "plugin:tagbar" = {
+      url = "github:preservim/tagbar";
       flake = false;
     };
     "plugin:js-is-bad" = {

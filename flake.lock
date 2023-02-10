@@ -324,6 +324,22 @@
         "type": "github"
       }
     },
+    "plugin:nerdtree": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1655115046,
+        "narHash": "sha256-8e+PlvG+x3lPqbhP4YpGtXcO0bPJC4EVJ3t6AjMU4ws=",
+        "owner": "preservim",
+        "repo": "nerdtree",
+        "rev": "fc85a6f07c2cd694be93496ffad75be126240068",
+        "type": "github"
+      },
+      "original": {
+        "owner": "preservim",
+        "repo": "nerdtree",
+        "type": "github"
+      }
+    },
     "plugin:nickel": {
       "flake": false,
       "locked": {
@@ -516,6 +532,22 @@
         "type": "github"
       }
     },
+    "plugin:vimwiki": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1670214352,
+        "narHash": "sha256-AOlT8JjP+BlsHUSpa5DeWw4PcA85u4Hw61MG4NXxnMc=",
+        "owner": "vimwiki",
+        "repo": "vimwiki",
+        "rev": "fea8bee382b2051b0137fd2cacf0862823ee69b3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "vimwiki",
+        "repo": "vimwiki",
+        "type": "github"
+      }
+    },
     "plugin:webdev-icons": {
       "flake": false,
       "locked": {
@@ -569,6 +601,7 @@
         "plugin:neogit": "plugin:neogit",
         "plugin:neovim-dashboard": "plugin:neovim-dashboard",
         "plugin:neovim-tree": "plugin:neovim-tree",
+        "plugin:nerdtree": "plugin:nerdtree",
         "plugin:nickel": "plugin:nickel",
         "plugin:nvim-autopairs": "plugin:nvim-autopairs",
         "plugin:nvim-lspconfig": "plugin:nvim-lspconfig",
@@ -581,6 +614,7 @@
         "plugin:vim-commentary": "plugin:vim-commentary",
         "plugin:vim-nix": "plugin:vim-nix",
         "plugin:vim-surround": "plugin:vim-surround",
+        "plugin:vimwiki": "plugin:vimwiki",
         "plugin:webdev-icons": "plugin:webdev-icons",
         "plugin:which-key": "plugin:which-key"
       }

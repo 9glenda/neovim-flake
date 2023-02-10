@@ -17,9 +17,24 @@
       url = "github:joshdick/onedark.vim";
       flake = false;
     };
+    # coc
+#    "plugin:coc" = {
+#      url = "github:neoclide/coc.nvim";
+#      flake = false;
+#    };
+
+    "plugin:nerdtree" = {
+      url = "github:preservim/nerdtree";
+      flake = false;
+    };
     # Terminal
     "plugin:toggleterm" = {
       url = "github:akinsho/toggleterm.nvim";
+      flake = false;
+    };
+    # note taking
+    "plugin:vimwiki" = {
+      url = "github:vimwiki/vimwiki";
       flake = false;
     };
     # Git
@@ -185,14 +200,6 @@
                 pname = plugName name;
                 version = "master";
                 src = builtins.getAttr name inputs;
-
-                # Tree-sitter fails for a variety of lang grammars unless using :TSUpdate
-                # For now install imperatively
-                #postPatch =
-                #  if (name == "nvim-treesitter") then ''
-                #    rm -r parser
-                #    ln -s ${treesitterGrammars} parser
-                #  '' else "";
               };
           in {
             neovimPlugins = builtins.listToAttrs (map (plugin: {
@@ -296,17 +303,13 @@
 
         packages = {
           neovimGlenda = neovimBuilder {
-            # the next line loads a trivial example of a init.vim:
-            # customRC = pkgs.lib.readFile ./${packages.config}/bin/init.vim;
-          #customRC = luaFile ./config/lua/config/options.lua;
-
+# ${luaFile ./config/lua/config/coc.lua}
           customRC =''
 ${vimFile ./config/toggleterm.vim}
 ${luaFile ./config/lua/config/options.lua}
 ${luaFile ./config/lua/config/toggleterm.lua}
 ${luaFile ./config/lua/config/colorsheme.lua}
 ${luaFile ./config/lua/config/whichkey.lua}
-${luaFile ./config/lua/config/cmp.lua}
 ${luaFile ./config/lua/config/comment.lua}
 ${luaFile ./config/lua/config/autopairs.lua}
 ${luaFile ./config/lua/config/lualine.lua}
@@ -314,37 +317,13 @@ ${luaFile ./config/lua/config/dashboard.lua}
 ${luaFile ./config/lua/config/telescope.lua}
 ${luaFile ./config/lua/config/keymap.lua}
 ${luaFile ./config/lua/config/git.lua}
+${luaFile ./config/lua/config/cmp.lua}
 ${luaFile ./config/lua/config/lsp/nix.lua}
 ${luaFile ./config/lua/config/lsp/gopls.lua}
 ${luaFile ./config/lua/config/lsp/lua.lua}
 ${luaFile ./config/lua/config/lsp/rust.lua}
             '';
 
-          };
-          config = pkgs.stdenv.mkDerivation {
-            name = "config";
-            src = ./.;
-            buildPhase = ''
-            '';
-            installPhase = ''
-              printf 'require "%s/bin/config/lua/config/options.lua"' "$out" > init.lua
-              mkdir -p $out/bin
-              cp -r config $out/bin
-              cp init.vim $out/bin
-              cp init.lua $out/bin
-            '';
-          };
-          runNeovim = pkgs.stdenv.mkDerivation {
-            name = "runNeovim";
-            src = ./.;
-            buildPhase = ''
-              printf '#!/bin/sh
-              LUA_PATH=%s:$LUA_PATH ${packages.neovimGlenda}/bin/nvim' "$out/bin/config" > runNeovim
-              '';
-            installPhase = ''
-              mkdir -p $out/bin
-              install runNeovim $out/bin/runNeovim
-            '';
           };
         };
       });

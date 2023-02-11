@@ -86,6 +86,10 @@ local mappings = {
   ["t"] = {
     name = "Term",
     t = { "<cmd>ToggleTerm<cr>", "New" }, -- create a binding with label
+  },
+  ["w"] = {
+    name = "VimWiki",
+    w = { "<cmd>VimwikiIndex<cr>", "VimwikiIndex" }, -- create a binding with label
   }
 }
 

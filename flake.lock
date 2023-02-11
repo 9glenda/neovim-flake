@@ -263,11 +263,11 @@
     "plugin:luasnip": {
       "flake": false,
       "locked": {
-        "lastModified": 1675785437,
-        "narHash": "sha256-shtreWELC3og6aZyw/RqI4TISq0XD1uAsefJiTjiAeA=",
+        "lastModified": 1676151868,
+        "narHash": "sha256-OomSRnMc+MEYRiQwUZFKJHkwIKgmUx7zz3It41OmRuE=",
         "owner": "L3MON4D3",
         "repo": "LuaSnip",
-        "rev": "9bff06b570df29434a88f9c6a9cea3b21ca17208",
+        "rev": "f3ced04c23d2ad1ec8ea5fddcf55ad8250329d9f",
         "type": "github"
       },
       "original": {

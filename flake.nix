@@ -305,6 +305,7 @@
           neovimGlenda = neovimBuilder {
 # ${luaFile ./config/lua/config/coc.lua}
           customRC =''
+${luaFile ./config/lua/config/vimwiki.lua}
 ${vimFile ./config/toggleterm.vim}
 ${luaFile ./config/lua/config/options.lua}
 ${luaFile ./config/lua/config/toggleterm.lua}

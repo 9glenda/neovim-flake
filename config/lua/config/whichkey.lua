@@ -90,6 +90,15 @@ local mappings = {
   ["w"] = {
     name = "VimWiki",
     w = { "<cmd>VimwikiIndex<cr>", "VimwikiIndex" }, -- create a binding with label
+    t = { "<cmd>VimwikiTabIndex<cr>", "VimwikiIndex" }, -- create a binding with label
+    h = { "<cmd>Vimwiki2Html<cr>","Vimwiki2Html" },
+    r = { "<cmd>VimwikiRenameFile<cr>","VimwikiRenameFile" },
+    d = { "<cmd>VimwikiDeleteFile<cr>","VimwikiDeleteFile" },
+    l = { "<cmd>VimwikiNextLink<cr>","VimwikiNextLink" },
+  },
+  ["m"] = {
+    name = "Markdown",
+    h = { "<cmd>MarkdownHeaders<cr>","MarkdownHeaders" },
   }
 }
 

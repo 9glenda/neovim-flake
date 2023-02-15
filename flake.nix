@@ -23,6 +23,16 @@
 #      flake = false;
 #    };
 
+    # learning vim
+
+    "plugin:vim-be-good" = {
+      url = "github:ThePrimeagen/vim-be-good";
+      flake = false;
+    };
+    "plugin:md-headers.nvim" = {
+      url = "github:AntonVanAssche/md-headers.nvim";
+      flake = false;
+    };
     "plugin:nerdtree" = {
       url = "github:preservim/nerdtree";
       flake = false;
@@ -51,10 +61,16 @@
       url = "github:tpope/vim-surround";
       flake = false;
     };
+    # telescope 
     "plugin:telescope-plugin" = {
       url = "github:nvim-telescope/telescope-project.nvim";
       flake = false;
     };
+    "plugin:telescope-plugin-vimwiki" = {
+      url = "github:ElPiloto/telescope-vimwiki.nvim";
+      flake = false;
+    };
+
     "plugin:webdev-icons" = {
       url = "github:nvim-tree/nvim-web-devicons";
       flake = false;
@@ -305,6 +321,7 @@
           neovimGlenda = neovimBuilder {
 # ${luaFile ./config/lua/config/coc.lua}
           customRC =''
+${luaFile ./config/lua/config/markdown.lua}
 ${luaFile ./config/lua/config/vimwiki.lua}
 ${vimFile ./config/toggleterm.vim}
 ${luaFile ./config/lua/config/options.lua}

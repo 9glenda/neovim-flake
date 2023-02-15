@@ -5,6 +5,7 @@ end
 
 local actions = require "telescope.actions"
 require'telescope'.load_extension('project')
+require'telescope'.load_extension('vimwiki')
 
 telescope.setup {
   defaults = {

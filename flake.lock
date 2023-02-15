@@ -39,11 +39,11 @@
       },
       "locked": {
         "dir": "contrib",
-        "lastModified": 1676463967,
-        "narHash": "sha256-goFDBMy0zbcNN5DoJllG2vNdnfZDggA7WKsUuJy3Srg=",
+        "lastModified": 1676479520,
+        "narHash": "sha256-npH0xoXDc5oPdSEdOsbunRmMhQDOSIFN3CQSLNnHYsE=",
         "owner": "neovim",
         "repo": "neovim",
-        "rev": "a289e82142fdc5ff657dd30198546eeb1e115fe9",
+        "rev": "f006313e95022340b2b0ae28e8223e6e548f0826",
         "type": "github"
       },
       "original": {
@@ -103,11 +103,11 @@
     "plugin:cmp-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1676388741,
-        "narHash": "sha256-yFTHFveMEki4Y7Q/wdxfZVGFT4ZbcIyffkknjJtHn+w=",
+        "lastModified": 1676473339,
+        "narHash": "sha256-TA5dxjaUOzMTuihPJ0Z7f3bVGtmdDwELeIyoAzSrZd8=",
         "owner": "hrsh7th",
         "repo": "nvim-cmp",
-        "rev": "c4128bcd131fb7152bda8f8dd2b5e41d2fefa88c",
+        "rev": "208d69f233d65526a22c6497ed57d0c80d99fa5f",
         "type": "github"
       },
       "original": {
@@ -292,6 +292,22 @@
         "type": "github"
       }
     },
+    "plugin:mkdnflow.nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1676120328,
+        "narHash": "sha256-Rywm6kItCUuZlSN0tvCfqKY5VG5AHWxJYdtOz7Ieejc=",
+        "owner": "jakewvincent",
+        "repo": "mkdnflow.nvim",
+        "rev": "51cf944514e49662cca8a075b1a8f485c2c39d0f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jakewvincent",
+        "repo": "mkdnflow.nvim",
+        "type": "github"
+      }
+    },
     "plugin:neogit": {
       "flake": false,
       "locked": {
@@ -391,11 +407,11 @@
     "plugin:nvim-lspconfig": {
       "flake": false,
       "locked": {
-        "lastModified": 1676431382,
-        "narHash": "sha256-DBaAmhMfYzlHza6DOscDhD3ecYaFB4QqXrkfIirfMns=",
+        "lastModified": 1676472489,
+        "narHash": "sha256-DnvQ8gDqvkYcDwxQzQiIlLpiBI7xmVJ8J9VYCeWXwfc=",
         "owner": "neovim",
         "repo": "nvim-lspconfig",
-        "rev": "e20d77deac40e6e65d036acd60aff474c0f09282",
+        "rev": "649137cbc53a044bffde36294ce3160cb18f32c7",
         "type": "github"
       },
       "original": {
@@ -647,6 +663,7 @@
         "plugin:lualine": "plugin:lualine",
         "plugin:luasnip": "plugin:luasnip",
         "plugin:md-headers.nvim": "plugin:md-headers.nvim",
+        "plugin:mkdnflow.nvim": "plugin:mkdnflow.nvim",
         "plugin:neogit": "plugin:neogit",
         "plugin:neovim-dashboard": "plugin:neovim-dashboard",
         "plugin:neovim-tree": "plugin:neovim-tree",

@@ -17,7 +17,11 @@
       url = "github:joshdick/onedark.vim";
       flake = false;
     };
-    # coc
+    "plugin:mkdnflow.nvim" = {
+      url = "github:jakewvincent/mkdnflow.nvim";
+      flake = false;
+    };
+# coc
 #    "plugin:coc" = {
 #      url = "github:neoclide/coc.nvim";
 #      flake = false;

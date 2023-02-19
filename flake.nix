@@ -17,6 +17,11 @@
       url = "github:joshdick/onedark.vim";
       flake = false;
     };
+    # markdown
+    "plugin:iamcco/markdown-preview.nvim" = {
+      url = "github:iamcco/markdown-preview.nvim";
+      flake = false;
+    };
     "plugin:mkdnflow.nvim" = {
       url = "github:jakewvincent/mkdnflow.nvim";
       flake = false;
@@ -326,6 +331,8 @@
 # ${luaFile ./config/lua/config/coc.lua}
           customRC =''
 ${luaFile ./config/lua/config/markdown.lua}
+${luaFile ./config/lua/config/theme.lua}
+${luaFile ./config/lua/config/mkdnflow.lua}
 ${luaFile ./config/lua/config/vimwiki.lua}
 ${vimFile ./config/toggleterm.vim}
 ${luaFile ./config/lua/config/options.lua}
@@ -342,9 +349,10 @@ ${luaFile ./config/lua/config/git.lua}
 ${luaFile ./config/lua/config/cmp.lua}
 ${luaFile ./config/lua/config/lsp/nix.lua}
 ${luaFile ./config/lua/config/lsp/gopls.lua}
-${luaFile ./config/lua/config/lsp/lua.lua}
 ${luaFile ./config/lua/config/lsp/rust.lua}
+
             '';
+# ${luaFile ./config/lua/config/lsp/lua.lua}
 
           };
         };

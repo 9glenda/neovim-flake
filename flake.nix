@@ -17,13 +17,47 @@
       url = "github:joshdick/onedark.vim";
       flake = false;
     };
+
+
+    "plugin:fmt" = {
+      url = "github:lukas-reineke/lsp-format.nvim";
+      flake = false;
+    };
+    
+    "plugin:tree-sitter" = {
+      url = "github:nvim-treesitter/nvim-treesitter";
+      flake = false;
+    };
+
+    "plugin:neorg" = {
+      url = "github:nvim-neorg/neorg";
+      flake = false;
+    };
     # markdown
-    "plugin:iamcco/markdown-preview.nvim" = {
+
+    "plugin:markdown-preview" = {
       url = "github:iamcco/markdown-preview.nvim";
+      flake = false;
+    };
+
+#    "plugin:markdown-preview2" = {
+#      url = "github:euclio/vim-markdown-composer";
+#      flake = false;
+#    };
+    "plugin:peek" = {
+      url = "github:toppair/peek.nvim";
       flake = false;
     };
     "plugin:mkdnflow.nvim" = {
       url = "github:jakewvincent/mkdnflow.nvim";
+      flake = false;
+    };
+    "plugin:md-headers.nvim" = {
+      url = "github:AntonVanAssche/md-headers.nvim";
+      flake = false;
+    };
+    "plugin:glow" = {
+      url = "github:ellisonleao/glow.nvim";
       flake = false;
     };
 # coc
@@ -36,10 +70,6 @@
 
     "plugin:vim-be-good" = {
       url = "github:ThePrimeagen/vim-be-good";
-      flake = false;
-    };
-    "plugin:md-headers.nvim" = {
-      url = "github:AntonVanAssche/md-headers.nvim";
       flake = false;
     };
     "plugin:nerdtree" = {
@@ -208,12 +238,17 @@
 
   vimFile = path: "${builtins.readFile path}";
   luaFile = path: wrapLuaConfig "${builtins.readFile path}";
+  #stringToList = str: builtins.split "\n" str;
+  #getRequire = s: builtins.match "require ([^\n]+).*" s;
+  #getPath = input: builtins.substring (builtins.stringLength "require ") (builtins.stringLength input) input;
+  #parseLuaFile = path: parseLua "${builtins.readFile path}";
+
 
         pluginOverlay = final: prev:
           let
             inherit (prev.vimUtils) buildVimPluginFrom2Nix;
             treesitterGrammars =
-              prev.tree-sitter.withPlugins (_: prev.tree-sitter.allGrammars);
+              prev.tree-sitter.withPlugins (_: [ prev.tree-sitter.allGrammars]);
             plugins =
               builtins.filter (s: (builtins.match "plugin:.*" s) != null)
               (builtins.attrNames inputs);
@@ -331,6 +366,7 @@
 # ${luaFile ./config/lua/config/coc.lua}
           customRC =''
 ${luaFile ./config/lua/config/markdown.lua}
+${luaFile ./config/lua/config/neorg.lua}
 ${luaFile ./config/lua/config/theme.lua}
 ${luaFile ./config/lua/config/mkdnflow.lua}
 ${luaFile ./config/lua/config/vimwiki.lua}
@@ -347,9 +383,12 @@ ${luaFile ./config/lua/config/telescope.lua}
 ${luaFile ./config/lua/config/keymap.lua}
 ${luaFile ./config/lua/config/git.lua}
 ${luaFile ./config/lua/config/cmp.lua}
+${luaFile ./config/lua/config/lsp/fmt.lua}
 ${luaFile ./config/lua/config/lsp/nix.lua}
 ${luaFile ./config/lua/config/lsp/gopls.lua}
 ${luaFile ./config/lua/config/lsp/rust.lua}
+autocmd BufWritePre <buffer> lua vim.lsp.buf.format()
+
 
             '';
 # ${luaFile ./config/lua/config/lsp/lua.lua}

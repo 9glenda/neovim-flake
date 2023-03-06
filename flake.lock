@@ -615,11 +615,11 @@
     "plugin:tree-sitter": {
       "flake": false,
       "locked": {
-        "lastModified": 1678016136,
-        "narHash": "sha256-/8vXxzYZrWT6EUTNbu2m96a+31Dltf2Q8fCpie2MhFg=",
+        "lastModified": 1678048481,
+        "narHash": "sha256-P6odPFF+YQIYWHVfr3faoZQuWNECXR+fqo/mT13+RYk=",
         "owner": "nvim-treesitter",
         "repo": "nvim-treesitter",
-        "rev": "3731cf1c0c70287568d26f190849c68a46c21297",
+        "rev": "d11dd552dbde181cd49652188521f4b5f6cad2f8",
         "type": "github"
       },
       "original": {

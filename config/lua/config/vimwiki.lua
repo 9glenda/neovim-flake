@@ -2,4 +2,4 @@
 --if not vimwiki_status_ok then
 --  return
 --end
-vim.g.vimwiki_list = {{syntax = 'markdown', ext = '.md'}}
+vim.g.vimwiki_list = {{path = '~/vimwiki/', syntax = 'markdown', ext = '.md'}}

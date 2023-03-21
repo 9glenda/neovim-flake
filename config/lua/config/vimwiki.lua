@@ -4,13 +4,15 @@
 --end
 vim.g.vimwiki_list = {
   {
-    path = "/opt/code/wiki/",
-    index = "main",
+    path = "~/vimwiki",
+    index = "index",
     syntax = "markdown",
     ext = "md",
     auto_diary_index = 1,
+    auto_generte_links = 1,
+    automatic_nested_syntaxes = 1,
     auto_toc = 1,
-    auto_generte_links = 1
+    auto_tags = 1,
   }
 }
 

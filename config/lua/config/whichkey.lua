@@ -98,6 +98,9 @@ local mappings = {
     r = { "<cmd>VimwikiRenameFile<cr>","VimwikiRenameFile" },
     d = { "<cmd>VimwikiDeleteFile<cr>","VimwikiDeleteFile" },
     l = { "<cmd>VimwikiNextLink<cr>","VimwikiNextLink" },
+    -- DIARY NAVIGATION
+    j = { "<cmd>VimwikiDiaryNextDay<cr>", "VimwikiDiaryNextDay" },
+    k = { "<cmd>VimwikiDiaryPrevDay<cr>", "VimwikiDiaryPrevDay" },
   },
   ["m"] = {
     name = "Markdown",

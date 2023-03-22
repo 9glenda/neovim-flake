@@ -23,7 +23,7 @@
       url = "github:lukas-reineke/lsp-format.nvim";
       flake = false;
     };
-    
+
     "plugin:tree-sitter" = {
       url = "github:nvim-treesitter/nvim-treesitter";
       flake = false;
@@ -33,6 +33,12 @@
       url = "github:nvim-neorg/neorg";
       flake = false;
     };
+    # Reading
+
+    "plugin:easyread.nvim" = {
+      url = "github:JellyApple102/easyread.nvim";
+      flake = false;
+    };
     # markdown
 
     "plugin:markdown-preview" = {
@@ -40,10 +46,10 @@
       flake = false;
     };
 
-#    "plugin:markdown-preview2" = {
-#      url = "github:euclio/vim-markdown-composer";
-#      flake = false;
-#    };
+    #    "plugin:markdown-preview2" = {
+    #      url = "github:euclio/vim-markdown-composer";
+    #      flake = false;
+    #    };
     "plugin:peek" = {
       url = "github:toppair/peek.nvim";
       flake = false;
@@ -60,11 +66,11 @@
       url = "github:ellisonleao/glow.nvim";
       flake = false;
     };
-# coc
-#    "plugin:coc" = {
-#      url = "github:neoclide/coc.nvim";
-#      flake = false;
-#    };
+    # coc
+    #    "plugin:coc" = {
+    #      url = "github:neoclide/coc.nvim";
+    #      flake = false;
+    #    };
 
     # learning vim
 
@@ -229,43 +235,47 @@
         # ```
         # pkgs.neovimPlugins.yourPluginName
         # ```
-    wrapLuaConfig = luaConfig: ''
-    lua << EOF
-    ${luaConfig}
-    EOF
-  '';
+        wrapLuaConfig = luaConfig: ''
+          lua << EOF
+          ${luaConfig}
+          EOF
+        '';
 
 
-  vimFile = path: "${builtins.readFile path}";
-  luaFile = path: wrapLuaConfig "${builtins.readFile path}";
-  #stringToList = str: builtins.split "\n" str;
-  #getRequire = s: builtins.match "require ([^\n]+).*" s;
-  #getPath = input: builtins.substring (builtins.stringLength "require ") (builtins.stringLength input) input;
-  #parseLuaFile = path: parseLua "${builtins.readFile path}";
+        vimFile = path: "${builtins.readFile path}";
+        luaFile = path: wrapLuaConfig "${builtins.readFile path}";
+        #stringToList = str: builtins.split "\n" str;
+        #getRequire = s: builtins.match "require ([^\n]+).*" s;
+        #getPath = input: builtins.substring (builtins.stringLength "require ") (builtins.stringLength input) input;
+        #parseLuaFile = path: parseLua "${builtins.readFile path}";
 
 
         pluginOverlay = final: prev:
           let
             inherit (prev.vimUtils) buildVimPluginFrom2Nix;
             treesitterGrammars =
-              prev.tree-sitter.withPlugins (_: [ prev.tree-sitter.allGrammars]);
+              prev.tree-sitter.withPlugins (_: [ prev.tree-sitter.allGrammars ]);
             plugins =
               builtins.filter (s: (builtins.match "plugin:.*" s) != null)
-              (builtins.attrNames inputs);
+                (builtins.attrNames inputs);
             plugName = input:
               builtins.substring (builtins.stringLength "plugin:")
-              (builtins.stringLength input) input;
+                (builtins.stringLength input)
+                input;
             buildPlug = name:
               buildVimPluginFrom2Nix {
                 pname = plugName name;
                 version = "master";
                 src = builtins.getAttr name inputs;
               };
-          in {
-            neovimPlugins = builtins.listToAttrs (map (plugin: {
-              name = plugName plugin;
-              value = buildPlug plugin;
-            }) plugins);
+          in
+          {
+            neovimPlugins = builtins.listToAttrs (map
+              (plugin: {
+                name = plugName plugin;
+                value = buildPlug plugin;
+              })
+              plugins);
           };
 
         # Apply the overlay and load nixpkgs as `pkgs`
@@ -312,20 +322,27 @@
         #          | to your imports!
         # opt      | List of optional plugins to load only when 
         #          | explicitly loaded from inside neovim
-        neovimBuilder = { luaConfigRC ? "", customRC ? "", viAlias ? true, vimAlias ? true
-          , start ? builtins.attrValues pkgs.neovimPlugins, opt ? [ ]
-          , debug ? false }:
+        neovimBuilder =
+          { luaConfigRC ? ""
+          , customRC ? ""
+          , viAlias ? true
+          , vimAlias ? true
+          , start ? builtins.attrValues pkgs.neovimPlugins
+          , opt ? [ ]
+          , debug ? false
+          }:
           let
             myNeovimUnwrapped = pkgs.neovim-unwrapped.overrideAttrs (prev: {
               propagatedBuildInputs = with pkgs; [ pkgs.stdenv.cc.cc.lib ];
             });
-          in pkgs.wrapNeovim myNeovimUnwrapped {
+          in
+          pkgs.wrapNeovim myNeovimUnwrapped {
             inherit viAlias;
             inherit vimAlias;
             configure = {
               customRC = ''
-              ${wrapLuaConfig luaConfigRC}
-              ${customRC}
+                ${wrapLuaConfig luaConfigRC}
+                ${customRC}
               '';
               packages.myVimPackage = with pkgs.neovimPlugins; {
                 start = start;
@@ -333,7 +350,8 @@
               };
             };
           };
-      in rec {
+      in
+      rec {
         overlay = final: prev: {
           neovim = self.packages.neovimGlenda;
         };
@@ -342,7 +360,8 @@
 
           with lib;
           let cfg = config.neovim-flake.neovim;
-          in {
+          in
+          {
             options.neovim-flake.neovim = {
               enable = mkEnableOption "Enables neovim";
             };
@@ -363,35 +382,36 @@
 
         packages = {
           neovimGlenda = neovimBuilder {
-# ${luaFile ./config/lua/config/coc.lua}
-          customRC =''
-${luaFile ./config/lua/config/markdown.lua}
-${luaFile ./config/lua/config/neorg.lua}
-${luaFile ./config/lua/config/theme.lua}
-${luaFile ./config/lua/config/mkdnflow.lua}
-${luaFile ./config/lua/config/vimwiki.lua}
-${vimFile ./config/toggleterm.vim}
-${luaFile ./config/lua/config/options.lua}
-${luaFile ./config/lua/config/toggleterm.lua}
-${luaFile ./config/lua/config/colorsheme.lua}
-${luaFile ./config/lua/config/whichkey.lua}
-${luaFile ./config/lua/config/comment.lua}
-${luaFile ./config/lua/config/autopairs.lua}
-${luaFile ./config/lua/config/lualine.lua}
-${luaFile ./config/lua/config/dashboard.lua}
-${luaFile ./config/lua/config/telescope.lua}
-${luaFile ./config/lua/config/keymap.lua}
-${luaFile ./config/lua/config/git.lua}
-${luaFile ./config/lua/config/cmp.lua}
-${luaFile ./config/lua/config/lsp/fmt.lua}
-${luaFile ./config/lua/config/lsp/nix.lua}
-${luaFile ./config/lua/config/lsp/gopls.lua}
-${luaFile ./config/lua/config/lsp/rust.lua}
-autocmd BufWritePre <buffer> lua vim.lsp.buf.format()
+            # ${luaFile ./config/lua/config/coc.lua}
+            customRC = ''
+              ${luaFile ./config/lua/config/markdown.lua}
+              ${luaFile ./config/lua/config/neorg.lua}
+              ${luaFile ./config/lua/config/theme.lua}
+              ${luaFile ./config/lua/config/mkdnflow.lua}
+              ${luaFile ./config/lua/config/vimwiki.lua}
+              ${vimFile ./config/toggleterm.vim}
+              ${luaFile ./config/lua/config/options.lua}
+              ${luaFile ./config/lua/config/toggleterm.lua}
+              ${luaFile ./config/lua/config/colorsheme.lua}
+              ${luaFile ./config/lua/config/whichkey.lua}
+              ${luaFile ./config/lua/config/comment.lua}
+              ${luaFile ./config/lua/config/autopairs.lua}
+              ${luaFile ./config/lua/config/lualine.lua}
+              ${luaFile ./config/lua/config/dashboard.lua}
+              ${luaFile ./config/lua/config/telescope.lua}
+              ${luaFile ./config/lua/config/keymap.lua}
+              ${luaFile ./config/lua/config/git.lua}
+              ${luaFile ./config/lua/config/cmp.lua}
+              ${luaFile ./config/lua/config/lsp/fmt.lua}
+              ${luaFile ./config/lua/config/lsp/nix.lua}
+              ${luaFile ./config/lua/config/lsp/gopls.lua}
+              ${luaFile ./config/lua/config/lsp/rust.lua}
+              ${luaFile ./config/lua/config/easyread.lua}
+              autocmd BufWritePre <buffer> lua vim.lsp.buf.format()
 
 
             '';
-# ${luaFile ./config/lua/config/lsp/lua.lua}
+            # ${luaFile ./config/lua/config/lsp/lua.lua}
 
           };
         };

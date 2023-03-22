@@ -180,6 +180,22 @@
         "type": "github"
       }
     },
+    "plugin:easyread.nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1679154159,
+        "narHash": "sha256-uWhaB+XRg53GXLpOAFzQ2IaHiKAn5honSKaSPQwb0e4=",
+        "owner": "JellyApple102",
+        "repo": "easyread.nvim",
+        "rev": "73df5f4dc8fd38bef079b890b2a34412844c00b1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "JellyApple102",
+        "repo": "easyread.nvim",
+        "type": "github"
+      }
+    },
     "plugin:fmt": {
       "flake": false,
       "locked": {
@@ -752,6 +768,7 @@
         "plugin:cmp-nvim-lua": "plugin:cmp-nvim-lua",
         "plugin:cmp-path": "plugin:cmp-path",
         "plugin:cmp_luasnip": "plugin:cmp_luasnip",
+        "plugin:easyread.nvim": "plugin:easyread.nvim",
         "plugin:fmt": "plugin:fmt",
         "plugin:fugitive": "plugin:fugitive",
         "plugin:gitsigns": "plugin:gitsigns",

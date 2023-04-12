@@ -39,11 +39,11 @@
       },
       "locked": {
         "dir": "contrib",
-        "lastModified": 1680310604,
-        "narHash": "sha256-2jop/z79HYhmV/hrdGvhjfTMouvzQvNRgFTkPhwWVcg=",
+        "lastModified": 1680264322,
+        "narHash": "sha256-nv1lSK+y/vv6ASMhNFoJE1YcNisJmQ0A+anNLzscvKk=",
         "owner": "neovim",
         "repo": "neovim",
-        "rev": "75e1b1d5c934aa3a12693a7df58795563fb7877e",
+        "rev": "83bfd94d1df5eecb8e4069a227c7d24598636d63",
         "type": "github"
       },
       "original": {
@@ -183,11 +183,11 @@
     "plugin:easyread.nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1680295872,
-        "narHash": "sha256-XMxIA89XXgCmuZe9DkRkaZI4pxoz9LPJZfkh9F7M8ms=",
+        "lastModified": 1679154159,
+        "narHash": "sha256-uWhaB+XRg53GXLpOAFzQ2IaHiKAn5honSKaSPQwb0e4=",
         "owner": "JellyApple102",
         "repo": "easyread.nvim",
-        "rev": "f367eaad214bf60f54ff6f94cf250a5970eb21e6",
+        "rev": "73df5f4dc8fd38bef079b890b2a34412844c00b1",
         "type": "github"
       },
       "original": {
@@ -615,11 +615,11 @@
     "plugin:toggleterm": {
       "flake": false,
       "locked": {
-        "lastModified": 1680290314,
-        "narHash": "sha256-862KtB9oqktx/mPI0wSauF7eJIJogqgG6wTTYlCSo9U=",
+        "lastModified": 1679785398,
+        "narHash": "sha256-Y4Pi4h2wIBboKvhewGQ3KPqrntv8B5jhT0mQwAkbEF8=",
         "owner": "akinsho",
         "repo": "toggleterm.nvim",
-        "rev": "b86982429325112d2b20c6d0cc7a5c4b182ab705",
+        "rev": "ed6c92d6708e5208360347f2281de99602061dc8",
         "type": "github"
       },
       "original": {

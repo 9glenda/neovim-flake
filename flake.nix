@@ -17,6 +17,10 @@
       flake = false;
     };
 
+    "plugin:dev-container" = {
+      url = "https://codeberg.org/esensar/nvim-dev-container";
+      flake = false;
+    };
 
     "plugin:fmt" = {
       url = "github:lukas-reineke/lsp-format.nvim";

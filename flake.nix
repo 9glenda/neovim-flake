@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-22.11";
     flake-utils = {
+      inputs.nixpkgs.follows = "nixpkgs";
       url = "github:numtide/flake-utils";
     };
     neovim-flake = {
@@ -186,10 +187,6 @@
     };
     "plugin:cmp-nvim-lsp" = {
       url = "github:hrsh7th/cmp-nvim-lsp";
-      flake = false;
-    };
-    "plugin:go.nvim" = {
-      url = "github:ray-x/go.nvim";
       flake = false;
     };
     "plugin:cmp-buffer" = {

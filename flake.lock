@@ -260,22 +260,6 @@
         "type": "github"
       }
     },
-    "plugin:go.nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1681274587,
-        "narHash": "sha256-ziuSYn6On1SWGYZZZwuQKzehpQ/NRLxCNGEb1/qWkdQ=",
-        "owner": "ray-x",
-        "repo": "go.nvim",
-        "rev": "d7530aea0f1086d10e9267287966702616c366af",
-        "type": "github"
-      },
-      "original": {
-        "owner": "ray-x",
-        "repo": "go.nvim",
-        "type": "github"
-      }
-    },
     "plugin:js-is-bad": {
       "flake": false,
       "locked": {
@@ -789,7 +773,6 @@
         "plugin:fugitive": "plugin:fugitive",
         "plugin:gitsigns": "plugin:gitsigns",
         "plugin:glow": "plugin:glow",
-        "plugin:go.nvim": "plugin:go.nvim",
         "plugin:js-is-bad": "plugin:js-is-bad",
         "plugin:lazygit": "plugin:lazygit",
         "plugin:lualine": "plugin:lualine",

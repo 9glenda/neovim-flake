@@ -21,6 +21,10 @@
       url = "github:lukas-reineke/lsp-format.nvim";
       flake = false;
     };
+    "plugin:rust-lsp" = {
+      url = "github:simrat39/rust-tools.nvim";
+      flake = false;
+    };
 
     "plugin:tree-sitter" = {
       url = "github:nvim-treesitter/nvim-treesitter";

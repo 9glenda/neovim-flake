@@ -564,6 +564,22 @@
         "type": "github"
       }
     },
+    "plugin:rust-lsp": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1676929960,
+        "narHash": "sha256-Cuk/vdoviB9ibt2rrkNRmNFy4S+6czhbExmIjTJRdZM=",
+        "owner": "simrat39",
+        "repo": "rust-tools.nvim",
+        "rev": "71d2cf67b5ed120a0e31b2c8adb210dd2834242f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "simrat39",
+        "repo": "rust-tools.nvim",
+        "type": "github"
+      }
+    },
     "plugin:tagbar": {
       "flake": false,
       "locked": {
@@ -808,6 +824,7 @@
         "plugin:onedark-vim": "plugin:onedark-vim",
         "plugin:peek": "plugin:peek",
         "plugin:plenary": "plugin:plenary",
+        "plugin:rust-lsp": "plugin:rust-lsp",
         "plugin:tagbar": "plugin:tagbar",
         "plugin:telescope-plugin": "plugin:telescope-plugin",
         "plugin:telescope-plugin-vimwiki": "plugin:telescope-plugin-vimwiki",

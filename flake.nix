@@ -2,7 +2,7 @@
   description = "9glenda's simple Neovim flake for easy configuration";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-22.11";
+    nixpkgs.url = "nixpkgs/nixos-unstable";
     flake-utils = {
       url = "github:numtide/flake-utils";
     };

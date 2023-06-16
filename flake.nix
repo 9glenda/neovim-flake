@@ -26,6 +26,11 @@
       flake = false;
     };
 
+    "plugin:nvim-dap" = {
+      url = "github:mfussenegger/nvim-dap";
+      flake = false;
+    };
+
     "plugin:tree-sitter" = {
       url = "github:nvim-treesitter/nvim-treesitter";
       flake = false;

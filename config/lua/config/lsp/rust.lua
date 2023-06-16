@@ -3,7 +3,7 @@ if not status_ok then
     return
 end
 lspconfig.rust_analyzer.setup({
-    on_attach=on_attach,
+    on_attach=on_attach_vim,
     settings = {
         ["rust-analyzer"] = {
           {

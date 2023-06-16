@@ -14,7 +14,7 @@ analyses = {
 unusedparams = true,
 },
 staticcheck = true,
-linksInHover = false,
+linksInHover = true,
 codelenses = {
 generate = true,
 gc_details = true,

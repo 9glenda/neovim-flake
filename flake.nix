@@ -412,6 +412,7 @@
               ${luaFile ./config/lua/config/lsp/nix.lua}
               ${luaFile ./config/lua/config/lsp/gopls.lua}
               ${luaFile ./config/lua/config/lsp/rust.lua}
+              ${luaFile ./config/lua/config/rust.lua}
               ${luaFile ./config/lua/config/easyread.lua}
               autocmd BufWritePre <buffer> lua vim.lsp.buf.format()
 

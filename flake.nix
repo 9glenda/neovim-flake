@@ -365,6 +365,7 @@
       rec {
         overlay = final: prev: {
           neovim = self.packages.neovimGlenda;
+          neovimGlenda = self.packages.neovimGlenda;
         };
 
         nixosModules.default = { config, lib, pkgs, ... }:
@@ -420,8 +421,6 @@
               ${luaFile ./config/lua/config/rust.lua}
               ${luaFile ./config/lua/config/easyread.lua}
               autocmd BufWritePre <buffer> lua vim.lsp.buf.format()
-
-
             '';
             # ${luaFile ./config/lua/config/lsp/lua.lua}
 

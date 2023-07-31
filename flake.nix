@@ -217,7 +217,7 @@
       flake = false;
     };
     "plugin:neogit" = {
-      url = "github:TimUntersberger/neogit";
+      url = "github:NeogitOrg/neogit";
       flake = false;
     };
     "plugin:neovim-dashboard" = {

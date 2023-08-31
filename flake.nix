@@ -12,15 +12,31 @@
     };
 
     # Theme
+
+    "plugin:friendly-snippets" = {
+      url = "github:rafamadriz/friendly-snippets";
+      flake = false;
+    };
+
+    "plugin:neodev" = {
+      url = "github:folke/neodev.nvim";
+      flake = false;
+    };
+    "plugin:trouble.nvim" = {
+      url = "github:folke/trouble.nvim";
+      flake = false;
+    };
+
+
     "plugin:onedark-vim" = {
       url = "github:joshdick/onedark.vim";
       flake = false;
     };
 
-    "plugin:fmt" = {
-      url = "github:lukas-reineke/lsp-format.nvim";
-      flake = false;
-    };
+    # "plugin:fmt" = {
+    #   url = "github:lukas-reineke/lsp-format.nvim";
+    #   flake = false;
+    # };
     "plugin:rust-lsp" = {
       url = "github:simrat39/rust-tools.nvim";
       flake = false;
@@ -36,48 +52,43 @@
       flake = false;
     };
 
-    "plugin:neorg" = {
-      url = "github:nvim-neorg/neorg";
-      flake = false;
-    };
+    # "plugin:neorg" = {
+    #   url = "github:nvim-neorg/neorg";
+    #   flake = false;
+    # };
     # Reading
 
-    "plugin:easyread.nvim" = {
-      url = "github:JellyApple102/easyread.nvim";
-      flake = false;
-    };
-    # markdown
+    # "plugin:easyread.nvim" = {
+    #   url = "github:JellyApple102/easyread.nvim";
+    #   flake = false;
+    # };
+    # # markdown
 
-    "plugin:markdown-preview" = {
-      url = "github:iamcco/markdown-preview.nvim";
-      flake = false;
-    };
+    # "plugin:markdown-preview" = {
+    #   url = "github:iamcco/markdown-preview.nvim";
+    #   flake = false;
+    # };
 
     #    "plugin:markdown-preview2" = {
     #      url = "github:euclio/vim-markdown-composer";
     #      flake = false;
     #    };
-    "plugin:peek" = {
-      url = "github:toppair/peek.nvim";
-      flake = false;
-    };
-    "plugin:mkdnflow.nvim" = {
-      url = "github:jakewvincent/mkdnflow.nvim";
-      flake = false;
-    };
-    "plugin:md-headers.nvim" = {
-      url = "github:AntonVanAssche/md-headers.nvim";
-      flake = false;
-    };
+    # "plugin:peek" = {
+    #   url = "github:toppair/peek.nvim";
+    #   flake = false;
+    # };
+    # # "plugin:mkdnflow.nvim" = {
+    # #   url = "github:jakewvincent/mkdnflow.nvim";
+    # #   flake = false;
+    # # };
+    # "plugin:md-headers.nvim" = {
+    #   url = "github:AntonVanAssche/md-headers.nvim";
+    #   flake = false;
+    # };
     "plugin:glow" = {
       url = "github:ellisonleao/glow.nvim";
       flake = false;
     };
-    # coc
-    #    "plugin:coc" = {
-    #      url = "github:neoclide/coc.nvim";
-    #      flake = false;
-    #    };
 
     # learning vim
 
@@ -85,10 +96,10 @@
       url = "github:ThePrimeagen/vim-be-good";
       flake = false;
     };
-    "plugin:nerdtree" = {
-      url = "github:preservim/nerdtree";
-      flake = false;
-    };
+    # "plugin:nerdtree" = {
+    #   url = "github:preservim/nerdtree";
+    #   flake = false;
+    # };
     # Terminal
     "plugin:toggleterm" = {
       url = "github:akinsho/toggleterm.nvim";
@@ -100,19 +111,19 @@
       flake = false;
     };
     # Git
-    "plugin:gitsigns" = {
-      url = "github:lewis6991/gitsigns.nvim";
-      flake = false;
-    };
-    "plugin:fugitive" = {
-      url = "github:tpope/vim-fugitive";
-      flake = false;
-    };
+    # "plugin:gitsigns" = {
+    #   url = "github:lewis6991/gitsigns.nvim";
+    #   flake = false;
+    # };
+    # "plugin:fugitive" = {
+    #   url = "github:tpope/vim-fugitive";
+    #   flake = false;
+    # };
 
-    "plugin:vim-surround" = {
-      url = "github:tpope/vim-surround";
-      flake = false;
-    };
+    # "plugin:vim-surround" = {
+    #   url = "github:tpope/vim-surround";
+    #   flake = false;
+    # };
     # telescope 
     "plugin:telescope-plugin" = {
       url = "github:nvim-telescope/telescope-project.nvim";
@@ -136,10 +147,10 @@
       url = "github:preservim/tagbar";
       flake = false;
     };
-    "plugin:js-is-bad" = {
-      url = "github:pangloss/vim-javascript";
-      flake = false;
-    };
+    # "plugin:js-is-bad" = {
+    #   url = "github:pangloss/vim-javascript";
+    #   flake = false;
+    # };
     "plugin:plenary" = {
       url = "github:nvim-lua/plenary.nvim";
       flake = false;
@@ -164,10 +175,10 @@
       url = "github:folke/which-key.nvim";
       flake = false;
     };
-    "plugin:nvim-autopairs" = {
-      url = "github:windwp/nvim-autopairs";
-      flake = false;
-    };
+    # "plugin:nvim-autopairs" = {
+    #   url = "github:windwp/nvim-autopairs";
+    #   flake = false;
+    # };
     "plugin:nvim-lspconfig" = {
       url = "github:neovim/nvim-lspconfig";
       flake = false;
@@ -204,10 +215,10 @@
       url = "github:hrsh7th/cmp-cmdline";
       flake = false;
     };
-    "plugin:lualine" = {
-      url = "github:nvim-lualine/lualine.nvim";
-      flake = false;
-    };
+    # "plugin:lualine" = {
+    #   url = "github:nvim-lualine/lualine.nvim";
+    #   flake = false;
+    # };
     "plugin:telescope.nvim" = {
       url = "github:nvim-telescope/telescope.nvim";
       flake = false;
@@ -216,14 +227,14 @@
       url = "github:nickel-lang/vim-nickel";
       flake = false;
     };
-    "plugin:neogit" = {
-      url = "github:NeogitOrg/neogit";
-      flake = false;
-    };
-    "plugin:neovim-dashboard" = {
-      url = "github:glepnir/dashboard-nvim";
-      flake = false;
-    };
+    # "plugin:neogit" = {
+    #   url = "github:NeogitOrg/neogit";
+    #   flake = false;
+    # };
+    # "plugin:neovim-dashboard" = {
+    #   url = "github:glepnir/dashboard-nvim";
+    #   flake = false;
+    # };
 
   };
 
@@ -265,7 +276,7 @@
           let
             inherit (prev.vimUtils) buildVimPluginFrom2Nix;
             treesitterGrammars =
-              prev.tree-sitter.withPlugins (_: [ prev.tree-sitter.allGrammars ]);
+              prev.tree-sitter.withPlugins (_: [ prev.tree-sitter.allGrammars prev.tree-sitter.bash ]);
             plugins =
               builtins.filter (s: (builtins.match "plugin:.*" s) != null)
                 (builtins.attrNames inputs);
@@ -353,7 +364,7 @@
             configure = {
               customRC = ''
                 ${wrapLuaConfig luaConfigRC}
-                ${customRC}
+                ${builtins.replaceStrings ["@gopls@" "@bashls@" "@tsserver@" "@nixd@"] ["${pkgs.gopls}" "${pkgs.nodePackages_latest.bash-language-server}" "${pkgs.nodePackages_latest.typescript-language-server}" "${pkgs.nixd}"] "${customRC}"}
               '';
               packages.myVimPackage = with pkgs.neovimPlugins; {
                 start = start;
@@ -396,32 +407,36 @@
           neovimGlenda = neovimBuilder {
             # ${luaFile ./config/lua/config/coc.lua}
             customRC = ''
-              ${luaFile ./config/lua/config/markdown.lua}
-              ${luaFile ./config/lua/config/neorg.lua}
-              ${luaFile ./config/lua/config/theme.lua}
-              ${luaFile ./config/lua/config/mkdnflow.lua}
-              ${luaFile ./config/lua/config/vimwiki.lua}
-              ${vimFile ./config/toggleterm.vim}
-              ${luaFile ./config/lua/config/options.lua}
-              ${luaFile ./config/lua/config/toggleterm.lua}
-              ${luaFile ./config/lua/config/colorsheme.lua}
-              ${luaFile ./config/lua/config/whichkey.lua}
-              ${luaFile ./config/lua/config/comment.lua}
-              ${luaFile ./config/lua/config/autopairs.lua}
-              ${luaFile ./config/lua/config/lualine.lua}
-              ${luaFile ./config/lua/config/dashboard.lua}
-              ${luaFile ./config/lua/config/telescope.lua}
-              ${luaFile ./config/lua/config/keymap.lua}
-              ${luaFile ./config/lua/config/git.lua}
+              ${luaFile ./config/lua/config/kickstart.lua}
+              ${luaFile ./config/lua/config/treesitter.lua}
               ${luaFile ./config/lua/config/cmp.lua}
-              ${luaFile ./config/lua/config/lsp/fmt.lua}
-              ${luaFile ./config/lua/config/lsp/nix.lua}
-              ${luaFile ./config/lua/config/lsp/gopls.lua}
-              ${luaFile ./config/lua/config/lsp/rust.lua}
-              ${luaFile ./config/lua/config/rust.lua}
-              ${luaFile ./config/lua/config/easyread.lua}
-              autocmd BufWritePre <buffer> lua vim.lsp.buf.format()
+              ${luaFile ./config/lua/config/lsp/init.lua}
+              ${luaFile ./config/lua/config/colorsheme.lua}
+              ${luaFile ./config/lua/config/go.lua}
+              ${luaFile ./config/lua/config/toggleterm.lua}
+              ${luaFile ./config/lua/config/keymap.lua}
+              ${luaFile ./config/lua/config/telescope.lua}
+              ${luaFile ./config/lua/config/whichkey.lua}
             '';
+            # autocmd BufWritePre <buffer> lua vim.lsp.buf.format()
+            # ${luaFile ./config/lua/config/markdown.lua}
+            # ${luaFile ./config/lua/config/neorg.lua}
+            # ${luaFile ./config/lua/config/theme.lua}
+            # ${luaFile ./config/lua/config/mkdnflow.lua}
+            # ${luaFile ./config/lua/config/vimwiki.lua}
+            # ${vimFile ./config/toggleterm.vim}
+            # ${luaFile ./config/lua/config/options.lua}
+            # ${luaFile ./config/lua/config/comment.lua}
+            # ${luaFile ./config/lua/config/autopairs.lua}
+            # ${luaFile ./config/lua/config/lualine.lua}
+            # ${luaFile ./config/lua/config/dashboard.lua}
+            # ${luaFile ./config/lua/config/git.lua}
+            # ${luaFile ./config/lua/config/cmp.lua}
+            # ${luaFile ./config/lua/config/lsp/fmt.lua}
+            # ${luaFile ./config/lua/config/lsp/nix.lua}
+            # ${luaFile ./config/lua/config/lsp/gopls.lua}
+            # ${luaFile ./config/lua/config/lsp/rust.lua}
+            # ${luaFile ./config/lua/config/rust.lua}
             # ${luaFile ./config/lua/config/lsp/lua.lua}
 
           };

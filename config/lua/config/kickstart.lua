@@ -14,6 +14,7 @@ local options = {
 
   undofile = true,
   numberwidth = 4,
+  tabstop = 2,
 }
 
 

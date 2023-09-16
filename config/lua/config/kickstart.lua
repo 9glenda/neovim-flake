@@ -5,7 +5,19 @@ local options = {
   ignorecase = true,
   smartcase = true,
 
+  updatetime = 300,
+  writebackup = false,
+
+  smartindent = true,
+
+
+  expandtab = true,
   -- clipboard = 'wl-copy',
+  
+  shiftwidth = 2,
+  tabstop = 2,
+  cursorline = true,
+  numberwidth = 4,
 
   completeopt = {'menuone', 'noselect'}, -- cmd complete
 

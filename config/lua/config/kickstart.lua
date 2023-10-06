@@ -1,5 +1,5 @@
 local options = {
-  hlsearch = false, -- search
+  hlsearch = true, -- search
   mouse = 'a', -- mouse
 
   ignorecase = true,
@@ -17,7 +17,6 @@ local options = {
   shiftwidth = 2,
   tabstop = 2,
   cursorline = true,
-  numberwidth = 4,
 
   completeopt = {'menuone', 'noselect'}, -- cmd complete
 
@@ -25,8 +24,7 @@ local options = {
   timeoutlen = 300,
 
   undofile = true,
-  numberwidth = 4,
-  tabstop = 2,
+  numberwidth = 6,
 }
 
 

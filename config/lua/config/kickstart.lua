@@ -24,7 +24,7 @@ local options = {
   timeoutlen = 300,
 
   undofile = true,
-  numberwidth = 6,
+  numberwidth = 4,
 }
 
 

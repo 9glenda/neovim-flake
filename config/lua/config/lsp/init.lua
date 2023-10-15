@@ -176,7 +176,11 @@ require'lspconfig'.nixd.setup{
   cmd = {"@nixd@/bin/nixd"},
 }
 
-require'lspconfig'.ocamllsp.setup{}
+require'lspconfig'.ocamllsp.setup{
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = {"@ocamllsp@/bin/ocamllsp"},
+}
 
 require('lspconfig').rust_analyzer.setup({
     on_attach=on_attach,

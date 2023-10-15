@@ -79,14 +79,14 @@
       "locked": {
         "lastModified": 1660101488,
         "narHash": "sha256-dG4U7MtnXThoa/PD+qFtCt76MQ14V1wX8GMYcvxEnbM=",
-        "owner": "sar",
-        "repo": "cmp-buffer.nvim",
+        "owner": "hrsh7th",
+        "repo": "cmp-buffer",
         "rev": "3022dbc9166796b644a841a02de8dd1cc1d311fa",
         "type": "github"
       },
       "original": {
-        "owner": "sar",
-        "repo": "cmp-buffer.nvim",
+        "owner": "hrsh7th",
+        "repo": "cmp-buffer",
         "type": "github"
       }
     },

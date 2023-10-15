@@ -208,7 +208,8 @@
       flake = false;
     };
     "plugin:cmp-buffer" = {
-      url = "github:sar/cmp-buffer.nvim";
+      # url = "github:sar/cmp-buffer.nvim";
+      url = "github:hrsh7th/cmp-buffer";
       flake = false;
     };
     "plugin:cmp-cmdline" = {
@@ -364,7 +365,7 @@
             configure = {
               customRC = ''
                 ${wrapLuaConfig luaConfigRC}
-                ${builtins.replaceStrings ["@gopls@" "@bashls@" "@tsserver@" "@nixd@"] ["${pkgs.gopls}" "${pkgs.nodePackages_latest.bash-language-server}" "${pkgs.nodePackages_latest.typescript-language-server}" "${pkgs.nixd}"] "${customRC}"}
+                ${builtins.replaceStrings ["@gopls@" "@bashls@" "@tsserver@" "@nixd@" "@ocamllsp@"] ["${pkgs.gopls}" "${pkgs.nodePackages_latest.bash-language-server}" "${pkgs.nodePackages_latest.typescript-language-server}" "${pkgs.nixd}" "${pkgs.ocamlPackages.ocaml-lsp}"] "${customRC}"}
               '';
               packages.myVimPackage = with pkgs.neovimPlugins; {
                 start = start;

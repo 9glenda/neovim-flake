@@ -346,6 +346,22 @@
         "type": "github"
       }
     },
+    "plugin:ocaml.nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1693430215,
+        "narHash": "sha256-zwjxoaibBKm7CN9PFq5YnnHq93Vs/odvBuAffb3V69U=",
+        "owner": "tjdevries",
+        "repo": "ocaml.nvim",
+        "rev": "53df6f15b7a2a7017031006f9d4a833e2e50c884",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tjdevries",
+        "repo": "ocaml.nvim",
+        "type": "github"
+      }
+    },
     "plugin:onedark-vim": {
       "flake": false,
       "locked": {
@@ -624,6 +640,7 @@
         "plugin:nickel": "plugin:nickel",
         "plugin:nvim-dap": "plugin:nvim-dap",
         "plugin:nvim-lspconfig": "plugin:nvim-lspconfig",
+        "plugin:ocaml.nvim": "plugin:ocaml.nvim",
         "plugin:onedark-vim": "plugin:onedark-vim",
         "plugin:plenary": "plugin:plenary",
         "plugin:rust-lsp": "plugin:rust-lsp",

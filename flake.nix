@@ -203,6 +203,10 @@
       url = "github:hrsh7th/cmp-nvim-lsp";
       flake = false;
     };
+    "plugin:ocaml.nvim" = {
+      url = "github:tjdevries/ocaml.nvim";
+      flake = false;
+    };
     "plugin:go.nvim" = {
       url = "github:ray-x/go.nvim";
       flake = false;

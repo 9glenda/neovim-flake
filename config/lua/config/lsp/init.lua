@@ -176,6 +176,12 @@ require'lspconfig'.nixd.setup{
   cmd = {"@nixd@/bin/nixd"},
 }
 
+require('lspconfig')['hls'].setup{
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { 'haskell', 'lhaskell', 'cabal' },
+}
+
 require('lspconfig').rust_analyzer.setup({
   on_attach=on_attach,
   capabilities = capabilities,
@@ -353,4 +359,5 @@ require'lspconfig'.ocamllsp.setup{
   end,
   cmd = {"ocamllsp"},
 }
+
 require('ocaml').setup()

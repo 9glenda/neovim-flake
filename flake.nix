@@ -13,6 +13,11 @@
 
     # Theme
 
+    "plugin:org" = {
+      url = "github:nvim-orgmode/orgmode";
+      flake = false;
+    };
+
     "plugin:friendly-snippets" = {
       url = "github:rafamadriz/friendly-snippets";
       flake = false;

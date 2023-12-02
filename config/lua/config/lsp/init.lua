@@ -152,7 +152,7 @@ require("lspconfig").gopls.setup{
         upgrade_depdendency = true,
         vendor = true,
       },
-      usePlaceholders = true,
+      -- usePlaceholders = true,
     },
   },
 }
